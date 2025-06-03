@@ -5,9 +5,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write  # ✅ Permite o push para a branch gh-pages
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,6 +26,12 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Create .nojekyll
+        run: echo > dist/.nojekyll
+
+      - name: Create 404.html for SPA routing
+        run: cp dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
