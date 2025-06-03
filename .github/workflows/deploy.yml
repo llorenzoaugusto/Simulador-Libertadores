@@ -33,6 +33,12 @@ jobs:
       - name: Create 404.html for SPA routing
         run: cp dist/index.html dist/404.html
 
+      - name: List dist contents
+        run: ls -R ./dist
+
+      - name: Show dist/index.html
+        run: cat ./dist/index.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
