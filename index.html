@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="./favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulador Libertadores</title>
-    <!-- seus estilos e fontes aqui -->
+    <link rel="icon" href="./public/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body class="bg-neutral-900">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script> <!-- ✅ correto para dev/build -->
+    <!-- sem <script>, o Vite injeta durante o build -->
   </body>
 </html>
