@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --team-card-actual-height: clamp(32px, 6vh, 48px);
+  --team-card-internal-margin: clamp(2px, 0.4vh, 4px);
+  --matchup-item-margin-y: clamp(4px, 0.8vh, 8px);
+  --matchup-content-height: calc(var(--team-card-actual-height) * 2 + var(--vs-div-height) + var(--team-card-internal-margin) * 2);
+  --vs-div-height: clamp(12px, 2vh, 16px);
+  --matchup-block-total-height: calc(var(--matchup-content-height) + var(--matchup-item-margin-y) * 2);
+  --connector-arm-length: clamp(12px, 2.5vw, 24px);
+  --connector-line-thickness: 2px;
+  --connector-line-color: #facc15;
+  --connector-line-opacity: 0.7;
+  --column-gap: clamp(4px, 1vw, 12px);
+}
+
+@layer base {
+  body {
+    @apply bg-neutral-900 text-gray-100;
+    font-family: var(--font-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+  }
+}
+
+@layer components {
+  .team-card {
+    @apply w-full bg-neutral-800 border border-neutral-700 rounded-lg flex items-center p-1 my-[var(--team-card-internal-margin)] transition-all duration-200 ease-in-out relative overflow-hidden;
+  }
+
+  .team-card-winner {
+    @apply bg-yellow-400 border-yellow-300 shadow-lg shadow-yellow-400/30;
+  }
+
+  .team-card-loser {
+    @apply opacity-40 grayscale;
+  }
+
+  .team-card-clickable {
+    @apply cursor-pointer hover:bg-neutral-700 hover:border-yellow-400 active:bg-neutral-600;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Ajustes específicos para fontes */
+.font-anton {
+  font-family: var(--font-secondary);
+}
+
+.font-bebas {
+  font-family: var(--font-primary);
+}
+
+/* Ajustes para textos */
+.text-title {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bebas text-yellow-400 tracking-wider;
+}
+
+.text-subtitle {
+  @apply text-sm md:text-lg font-bebas text-yellow-400 tracking-wider;
+}
+
+.text-team {
+  @apply font-bebas text-gray-200;
+}
+
+/* Ajustes para botões */
+.btn-primary {
+  @apply px-2 py-1 sm:px-3 sm:py-1.5 bg-yellow-500 text-neutral-900 font-bebas rounded-lg shadow-md hover:bg-yellow-400 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-75 text-xs sm:text-sm;
+}
+
+.btn-secondary {
+  @apply px-2 py-1 sm:px-3 sm:py-1.5 bg-gray-700 text-white font-bebas rounded-lg shadow-md hover:bg-gray-600 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 text-xs sm:text-sm;
+}
