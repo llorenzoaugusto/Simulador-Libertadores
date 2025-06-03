@@ -1,0 +1,5 @@
+{
+  "name": "Libertadores Bracket Generator",
+  "description": "A dynamic tournament bracket generator for the Libertadores 2025, allowing users to select winners for each match or simulate the entire tournament to see a champion emerge. Features team logos and confetti animation for the winner.",
+  "requestFramePermissions": []
+}
