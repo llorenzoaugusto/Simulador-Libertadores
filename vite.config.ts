@@ -5,7 +5,7 @@ export default defineConfig(() => {
     return {
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '.'),
+          '@': path.resolve(__dirname, './src'), // Changed this line
         }
       },
       base: '/Simulador-Libertadores/'
