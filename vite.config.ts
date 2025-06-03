@@ -6,10 +6,19 @@ export default defineConfig({
   base: '/Simulador-Libertadores/',
   build: {
     outDir: 'dist',
+    sourcemap: true,
     rollupOptions: {
       input: {
         main: './index.html'
+      },
+      output: {
+        manualChunks: undefined
       }
     }
+  },
+  server: {
+    port: 3000,
+    strictPort: true,
+    host: true
   }
 });
